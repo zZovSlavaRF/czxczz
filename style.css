@@ -1,0 +1,117 @@
+/* Основные стили */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+.page {
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Анимации */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes confetti {
+    0% { transform: translateY(-100vh) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+/* Стили для первой страницы */
+#home {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    position: relative;
+}
+
+.flower {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path fill="%23fff" d="M25 0c-8.284 0-15 6.716-15 15 0 8.284 6.716 15 15 15s15-6.716 15-15c0-8.284-6.716-15-15-15zm0 25c-6.627 0-12-5.373-12-12s5.373-12 12-12 12 5.373 12 12-5.373 12-12 12z"/></svg>') no-repeat;
+    animation: float 3s ease-in-out infinite;
+}
+
+.flower-1 { top: 10%; left: 20%; animation-delay: 0s; }
+.flower-2 { top: 30%; right: 15%; animation-delay: 1s; }
+.flower-3 { bottom: 20%; left: 40%; animation-delay: 2s; }
+
+.title {
+    font-size: 3em;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    animation: float 2s ease-in-out infinite alternate;
+}
+
+.cta-button {
+    padding: 15px 30px;
+    background: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.cta-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Стили для второй страницы */
+#gifts {
+    background: #fff5f5;
+}
+
+.gift-box {
+    width: 200px;
+    height: 200px;
+    background: #ffd700;
+    margin: 20px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+}
+
+.gift-box:hover {
+    transform: rotateY(180deg);
+}
+
+.gift-front, .gift-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.gift-back {
+    transform: rotateY(180deg);
+    background: #ff6b6b;
+    color: white;
+}
+
+/* Конфетти */
+.confetti {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    background: #ff6b6b;
+    top: -5%;
+    animation: confetti 5s linear infinite;
+}
